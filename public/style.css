@@ -1,0 +1,431 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  /* Background with fallback gradient + image */
+  background: 
+    linear-gradient(rgba(231, 27, 27, 0.6), rgba(234, 233, 233, 0.7)),
+    url("CIT\ BG.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Loading Screen */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(237, 11, 11, 0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-logo {
+  width: 100px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Main Container */
+.container {
+  margin-top: 30px;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Glassmorphism Box */
+.glass-box,
+.login-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+}
+
+/* Inputs */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+}
+/* Fix dropdown text color */
+select {
+  color: #333; /* makes the text visible */
+  background-color: #fff; /* ensures dropdown is white */
+  border: 1px solid #ccc;
+}
+
+/* Optional: placeholder for default option */
+select option[value=""] {
+  color: #999;
+}
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+/* 🔴 UNIVERSAL BUTTON DESIGN */
+button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+  margin: 8px auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: rgba(255, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+  background: rgba(255, 0, 0, 0.8);
+}
+
+.or {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+}
+
+/* Panel Header */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Complaint List Styling */
+#complaints-list {
+  margin-top: 15px;
+}
+
+.complaint-item {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.status.submitted { color: #00ffcc; }
+.status.reviewed { color: #ffcc00; }
+.status.pending { color: #ff6600; }
+.status.resolved { color: #00ff00; }
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+}
+/* 🔵 Make logout button same style as submit/login */
+#logout-btn {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+  background: #555;
+}
+
+/* 🔔 Logout confirmation message */
+#logout-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.logout-btn {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  background-color: #b71c1c;
+}
+/* Student complaint cards */
+#student-complaints-list {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#student-complaints-list .complaint-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* Status colors for student view */
+#student-complaints-list .status {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#student-complaints-list .status.submitted { color: #beb728; }
+#student-complaints-list .status.reviewed { color: #0037ff; }
+#student-complaints-list .status.pending { color: #d80e0e; }
+#student-complaints-list .status.resolved { color: #086b08; }
+/* Admin evidence image preview in complaint cards */
+#complaints-list .complaint-card img {
+  max-width: 150px;    /* smaller width */
+  max-height: 100px;   /* smaller height */
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+  object-fit: cover;   /* maintain aspect ratio */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;     /* show clickable pointer */
+  transition: transform 0.2s ease;
+}
+
+#complaints-list .complaint-card img:hover {
+  transform: scale(1.05); /* subtle hover effect */
+}
+/* Admin evidence image preview in complaint cards */
+#complaints-list .complaint-card img {
+  max-width: 150px;
+  max-height: 100px;
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  cursor: pointer;     /* indicates clickable */
+  transition: transform 0.2s ease;
+}
+
+#complaints-list .complaint-card img:hover {
+  transform: scale(1.05); /* subtle zoom on hover */
+}
+
+/* Lightbox overlay for full-size image preview */
+#lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  cursor: pointer;
+  display: none; /* hidden by default */
+}
+
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+/* 🔵 LIGHTBOX STYLING */
+#lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  cursor: pointer;
+  animation: fadeInLightbox 0.3s ease-in-out;
+}
+
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+#lightbox-overlay img:hover {
+  transform: scale(1.02); /* subtle zoom */
+}
+
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 🔹 Student Complaint Cards */
+#student-complaints-list .complaint-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+/* Status badges for student view */
+#student-complaints-list .status {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Status colors matching admin panel */
+#student-complaints-list .status.submitted { color: #00ffcc; }
+#student-complaints-list .status.reviewed { color: #ffcc00; }
+#student-complaints-list .status.pending { color: #ff6600; }
+#student-complaints-list .status.resolved { color: #00ff00; }
+
+/* History list styling */
+#student-complaints-list ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Optional: timestamp style */
+#student-complaints-list li {
+  margin-bottom: 3px;
+  font-style: italic;
+}
+/* 🔹 Student Evidence Image Styling */
+.student-evidence {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.student-evidence:hover {
+  transform: scale(1.1);
+  border-color: #ff0000;
+}
+
+/* Lightbox overlay (already referenced in HTML) */
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+
+
